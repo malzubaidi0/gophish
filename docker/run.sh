@@ -85,7 +85,7 @@ if [ -n "${DB_FILE_PATH+set}" ] ; then
         '.db_path = $DB_FILE_PATH' config.json > config.json.tmp && \
         cat config.json.tmp > config.json
 fi
-
+echo "$(whoami)"
 echo "Runtime configuration: "
 cat config.json
 
