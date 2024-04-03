@@ -32,7 +32,7 @@ COPY --from=build-golang /go/src/github.com/gophish/gophish/ ./
 COPY --from=build-js /build/static/js/dist/ ./static/js/dist/
 COPY --from=build-js /build/static/css/dist/ ./static/css/dist/
 COPY --from=build-golang /go/src/github.com/gophish/gophish/config.json ./
-RUN chown app:app config.json && chown app:app /opt/gophish/gophish
+RUN chown app:app config.json && chown app:app /opt/gophish/gophish && chmod 774 /opt/gophish/gophish
 RUN setcap 'cap_net_bind_service=+ep' /opt/gophish/gophish
 
 USER app
