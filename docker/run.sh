@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ "$(whoami)" != "app" ]; then
+        echo "Script must be run as user: app"
+        exit 255
+fi
+
 # set config for admin_server
 if [ -n "${ADMIN_LISTEN_URL+set}" ] ; then
     jq -r \
